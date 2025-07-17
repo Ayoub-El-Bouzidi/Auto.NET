@@ -1,22 +1,39 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System;
+﻿using System;
+using MyApp;
+namespace MyApp
+{
+    class Car
+    {
+        public string Brand { get; set; }
+        public string Model { get; set; }
 
-//the stack and the heap
+        public void PrintInfo()
+        {
+            Console.WriteLine($"Car: {Brand} {Model}");
+            }
+        }
+
+    }
+
 class Program
 {
-    //the stack and the heap
-    //the stack is for value types, the heap is for reference types
-    //the stack is faster than the heap
-    //the stack is limited in size, the heap is not
-    //the stack is used for method calls, the heap is used for objects
     static void Main(string[] args)
     {
-        int result = Factorial(5);
-        Console.WriteLine($"Factorial of 5 is: {result}");
-    }
-    static int Factorial(int x)
-    {
-        if (x == 0) return 1;
-        return x * Factorial(x - 1);
+        Car car1 = new Car { Brand = "Toyota", Model = "Corolla" };
+        car1.PrintInfo();
+
+        Car car2 = car1; // Reference to the same object
+        car2.Model = "Camry"; // Modifying the model of car2 will also affect car1
+        Console.WriteLine("\nAfter modifying car2:");
+        car1.PrintInfo();
+        car2.PrintInfo();
+
+        // Make car1 null
+        car1 = null;
+        Console.WriteLine("\nAfter setting car1 to null:");
+        car2.PrintInfo();
+        // make car2 null
+        car2 = null;
+        Console.WriteLine("\nAfter setting car2 to null:");
     }
 }
