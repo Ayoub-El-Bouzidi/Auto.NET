@@ -19,21 +19,14 @@ class Program
 {
     static void Main(string[] args)
     {
-        Car car1 = new Car { Brand = "Toyota", Model = "Corolla" };
-        car1.PrintInfo();
+        int x = 8;
+        Foo(ref x);
+        Console.WriteLine($"Value of x after Foo: {x}");
 
-        Car car2 = car1; // Reference to the same object
-        car2.Model = "Camry"; // Modifying the model of car2 will also affect car1
-        Console.WriteLine("\nAfter modifying car2:");
-        car1.PrintInfo();
-        car2.PrintInfo();
-
-        // Make car1 null
-        car1 = null;
-        Console.WriteLine("\nAfter setting car1 to null:");
-        car2.PrintInfo();
-        // make car2 null
-        car2 = null;
-        Console.WriteLine("\nAfter setting car2 to null:");
+        static void Foo(ref int p)
+        {
+            p = p + 1;
+            Console.WriteLine($"Value of p inside Foo: {p}");
+        }
     }
 }
