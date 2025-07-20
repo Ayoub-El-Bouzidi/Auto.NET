@@ -19,14 +19,15 @@ class Program
 {
     static void Main(string[] args)
     {
-        int x = 8;
-        Foo(ref x);
-        Console.WriteLine($"Value of x after Foo: {x}");
-
-        static void Foo(ref int p)
+        String a , b;
+        Split("Ayoub EL Bouzidi", out a, out b);
+        Console.WriteLine(a);
+        Console.WriteLine(b);
+        void Split(String name, out String firstName, out String lastName)
         {
-            p = p + 1;
-            Console.WriteLine($"Value of p inside Foo: {p}");
+            int i = name.LastIndexOf(' ');
+            firstName = name.Substring(0, i);
+            lastName = name.Substring(i + 1);
         }
     }
 }
