@@ -17,12 +17,13 @@ namespace MyApp
 
 class Program
 {
+    static String x = "Hello, World!";
+    static ref String GetX() => ref x;
+
     static void Main(string[] args)
     {
-        int[] numbers = { 1, 2, 3, 4, 5 };
-        ref int numRef = ref numbers[2];
-        numRef *= 10; // Modify the third element
-        Console.WriteLine(numRef);
-        Console.WriteLine(numbers[2]);
+        ref string message = ref GetX();
+        message = "Hello, C# World!";
+        Console.WriteLine(message);
     }
 }
