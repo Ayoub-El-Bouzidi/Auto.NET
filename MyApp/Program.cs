@@ -19,15 +19,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        String a , b;
-        Split("Ayoub EL Bouzidi", out a, out b);
-        Console.WriteLine(a);
-        Console.WriteLine(b);
-        void Split(String name, out String firstName, out String lastName)
-        {
-            int i = name.LastIndexOf(' ');
-            firstName = name.Substring(0, i);
-            lastName = name.Substring(i + 1);
-        }
+        int[] numbers = { 1, 2, 3, 4, 5 };
+        ref int numRef = ref numbers[2];
+        numRef *= 10; // Modify the third element
+        Console.WriteLine(numRef);
+        Console.WriteLine(numbers[2]);
     }
 }
