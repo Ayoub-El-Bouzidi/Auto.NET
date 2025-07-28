@@ -1,29 +1,12 @@
 ﻿using System;
-using MyApp;
 namespace MyApp
 {
-    class Car
+    class Program
     {
-        public string Brand { get; set; }
-        public string Model { get; set; }
-
-        public void PrintInfo()
+        static void Main(string[] args)
         {
-            Console.WriteLine($"Car: {Brand} {Model}");
-            }
+            var x = "Hello, World!";
+            Console.WriteLine(x);
         }
-
-    }
-
-class Program
-{
-    static String x = "Hello, World!";
-    static ref String GetX() => ref x;
-
-    static void Main(string[] args)
-    {
-        ref string message = ref GetX();
-        message = "Hello, C# World!";
-        Console.WriteLine(message);
     }
 }
